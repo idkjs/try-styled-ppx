@@ -3,7 +3,7 @@ let make = () => {
   let route = Router.useRouter();
 
   switch (route) {
-  | Some(Home) => <Page_Home />
+  | Some(Home) => <Page_Counters />
   | None => <Input />
   };
 };
