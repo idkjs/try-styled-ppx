@@ -35,7 +35,7 @@
   },
   "scripts": {
     "atdgen": "atdgen -t shared/Counter.atd && atdgen -bs shared/Counter.atd",
-    "bundle": "esbuild ./source/Index.bs.js --outfile=www/js/bundle.js --bundle --sourcemap --target=chrome58,firefox57,safari11,edge16 --define:process.env.NODE_ENV='\"development\"'",
+    "bundle": "esbuild ./src/Index.bs.js --outfile=www/js/bundle.js --bundle --sourcemap --target=chrome58,firefox57,safari11,edge16 --define:process.env.NODE_ENV='\"development\"'",
     "bundle:watch": "yarn bundle --watch --color=true",
     "dev-server": "PORT=5000 live-server ./www --host=localhost",
     "bs:build": "NINJA_ANSI_FORCED=1 bsb -make-world -clean-world",

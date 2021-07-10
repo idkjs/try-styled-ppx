@@ -14,7 +14,7 @@
     }
   ],
   "sources": [
-    { "dir": "source", "subdirs": true },
+    { "dir": "src", "subdirs": true },
     {
       "dir": "shared",
       "generators": [
