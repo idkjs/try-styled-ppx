@@ -1,6 +1,7 @@
 
-let baseUrl = "http://localhost:3003/";
+let baseUrl = "http://127.0.0.1:3003/";
 let countersUrl = baseUrl ++ "counters";
+let endpoint = "http://127.0.0.1:3003/counters";
 
 type t = RemoteData.t((Counters.Counter_t.counters));
 
@@ -31,41 +32,8 @@ let promiseToOptionalJson =
        None->Js.Promise.resolve;
      });
 };
-let handleCounterData = data => {
-  /* read the file from disk */
-  // let file_content = Node.Fs.readFileAsUtf8Sync(event_file);
-  /* parse the json */
-  // logfake(data)->ignore;
-  Js.log2("handleCounterData:", data);
 
-  // let json = Js.Json.parseExn(data);
-  let dict = Js.Dict.empty();
-  Js.Dict.set(dict, "counters", data);
-  let json: Js.Json.t = Js.Json.object_(dict);
-  /* turn it into a proper record */
-  let counters: Counter_t.counters =
-    Atdgen_codec_runtime.Decode.decode(Counter_bs.read_counters, json);
-  counters;
-};
-let fetchCounters = (): Js.Promise.t(option(Js.Json.t)) => {
-  // let json = Js.Json.parseExn(url)|>Obj.magic|>promiseToOptionalJson;
-  // let json = Js.Json.parseExn(url);
-  Js.log("Called");
 
-  let x = Fetch.fetch(countersUrl) |> promiseToOptionalJson;
-  Js.log(x)->Js.Promise.resolve->ignore;
-  Fetch.fetch(countersUrl) |> promiseToOptionalJson;
-};
-let authenticate = (res: Fetch.Response.t): Js.Promise.t(Js.Json.t) => {
-  let status = Fetch.Response.status(res);
-  switch (status) {
-  | 200 => Fetch.Response.json(res)
-  | 401 =>
-    Js.log("/login");
-    Js.Exn.raiseError(Fetch.Response.statusText(res));
-  | _ => Js.Exn.raiseError(Fetch.Response.statusText(res))
-  };
-};
  let fetchCounters = ()=> Js.Promise.(
     Fetch.fetch(countersUrl)
     |> then_(res => Fetch.Response.json(res))

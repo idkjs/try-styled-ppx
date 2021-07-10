@@ -14,16 +14,16 @@
   },
   "dependencies": {
     "@ahrefs/bs-atdgen-codec-runtime": "^2.0.1",
-    "bs-fetch": "^0.6.2",
-    "uuid": "^8.3.2",
-    "isomorphic-fetch": "^3.0.0",
     "@davesnx/styled-ppx": "1.5.6",
     "bs-css-emotion": "^3.0.0",
+    "bs-fetch": "^0.6.2",
     "bs-webapi": "^0.19.1",
+    "isomorphic-fetch": "^3.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "reason-react": "^0.9.1",
-    "taco-ui": "^0.1.2"
+    "taco-ui": "^0.1.2",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@jchavarri/bs-atdgen-generator": "^0.0.9",

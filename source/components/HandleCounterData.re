@@ -3,7 +3,7 @@ let handleCounterData = data => {
   // let file_content = Node.Fs.readFileAsUtf8Sync(event_file);
   /* parse the json */
   // logfake(data)->ignore;
-  Js.log2("handleCounterData:", data);
+  Js.log2("handleCounterData2:", data);
 
   // let json = Js.Json.parseExn(data);
   let dict = Js.Dict.empty();
@@ -12,5 +12,7 @@ let handleCounterData = data => {
   /* turn it into a proper record */
   let counters: Counter_t.counters =
     Atdgen_codec_runtime.Decode.decode(Counter_bs.read_counters, json);
+      Js.log2("handleCounterData2:", counters);
+
   counters;
 };

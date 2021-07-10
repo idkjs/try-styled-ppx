@@ -1,6 +1,5 @@
-[@bs.module "uuid"] external uuid: unit => string = "v4";
+[@module "uuid"] external uuid: unit => string = "v4";
 let event_file = "counters.json";
-// module Counter_t = Counters.Counter_t;
 
 let read_counter = () => {
   /* read the file from disk */
