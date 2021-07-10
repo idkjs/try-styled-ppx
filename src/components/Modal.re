@@ -1,5 +1,5 @@
-
-module Backdrop = [%styled.div {|
+module Backdrop = [%styled.div
+  {|
   background-color: rgba(34, 42, 40, 0.7);
   position: fixed;
   left: 0;
@@ -10,16 +10,20 @@ module Backdrop = [%styled.div {|
   align-items: flex-start;
   justify-content: center;
   z-index: 9;
-|}];
+|}
+];
 
-module Float = [%styled.div {|
+module Float = [%styled.div
+  {|
   position: fixed;
   left: 0px;
   top: 0px;
   z-index: 10;
-|}];
+|}
+];
 
-module Wrapper = [%styled.div {|
+module Wrapper = [%styled.div
+  {|
   border-radius: 6px;
   max-width: 28rem;
   max-height: 90vh;
@@ -28,22 +32,26 @@ module Wrapper = [%styled.div {|
   width: 100%;
   flex-shrink: 0;
   background-color: white;
-|}];
+|}
+];
 
-module Header = [%styled.div {|
+module Header = [%styled.div
+  {|
   position: sticky;
   top: 0px;
   background-color: white;
   padding: 28px 28px;
   padding-bottom: 0px;
   z-index: 11;
-|}];
+|}
+];
 
 module Content = [%styled.div {|
   padding: 28px 28px;
 |}];
 
-module Footer = [%styled.div {|
+module Footer = [%styled.div
+  {|
   padding: 28px 28px;
   padding-top: 0px;
   position: sticky;
@@ -51,17 +59,18 @@ module Footer = [%styled.div {|
   background-color: white;
   padding-bottom: 0px;
   z-index: 1;
-|}];
+|}
+];
 
 [@react.component]
 let make = (~header, ~footer, ~children, ~onBackdropClick) => {
   <Float>
     <Backdrop onClick=onBackdropClick>
       <Wrapper>
-        <Header>header</Header>
-        <Content>children</Content>
-        <Footer>footer</Footer>
+        <Header> header </Header>
+        <Content> children </Content>
+        <Footer> footer </Footer>
       </Wrapper>
     </Backdrop>
-  </Float>
+  </Float>;
 };

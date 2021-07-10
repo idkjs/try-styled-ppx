@@ -871,16 +871,12 @@ external createElement:
   "createElement";
 
 [@bs.val] [@bs.module "react"]
-external createElementVariadic:
-  (string, Js.t({..})) => React.element =
+external createElementVariadic: (string, Js.t({..})) => React.element =
   "createElement";
 
 let styles = Css.style([Css.unsafe("display", "block")]);
 let make = (props: makeProps) => {
   let stylesObject = {"className": styles};
   let newProps = Js.Obj.assign(stylesObject, Obj.magic(props));
-  createElementVariadic(
-    "input",
-    newProps
-  );
+  createElementVariadic("input", newProps);
 };

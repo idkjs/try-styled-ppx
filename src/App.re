@@ -162,7 +162,6 @@ module CounterList = {
        | Loading => <Text> "Loading" </Text>
        | Failure(e) => <Text> {"There has been an error: " ++ e} </Text>
        | Success(counters) =>
-
          counters.counters
          ->Belt.List.mapWithIndex((i, counter) =>
              <CounterItem
@@ -171,8 +170,7 @@ module CounterList = {
                value={counter.value}
              />
            )
-         ->listToReactArray;
-
+         ->listToReactArray
        }}
     </Stack>;
   };

@@ -14,7 +14,7 @@ let handleCounterData = data => {
   /* turn it into a proper record */
   let counters: Counter_t.counters =
     Atdgen_codec_runtime.Decode.decode(Counter_bs.read_counters, json);
-     Js.log2("counters:", counters.counters->Obj.magic->Belt.List.toArray);
+  Js.log2("counters:", counters.counters->Obj.magic->Belt.List.toArray);
   counters.counters;
 };
 
