@@ -1,5 +1,5 @@
 open UI;
-let listToReactArray = xs => xs->Belt.List.toArray->React.array;
+let listToReactArray = items => items->Belt.List.toArray->React.array;
 module H1 = [%styled.h1
   {|
   font-size: 32px;
@@ -162,21 +162,17 @@ module CounterList = {
        | Loading => <Text> "Loading" </Text>
        | Failure(e) => <Text> {"There has been an error: " ++ e} </Text>
        | Success(counters) =>
-         let counters = counters.counters->Belt.List.toArray;
-         Js.log2("Success(counters)", counters);
+  
+         counters.counters
+         ->Belt.List.mapWithIndex((i, counter) =>
+             <CounterItem
+               key={i->string_of_int}
+               name={counter.name}
+               value={counter.value}
+             />
+           )
+         ->listToReactArray;
 
-        //  <>
-           {counters->Belt.Array.mapWithIndex((index, counter) =>
-              <>
-                <CounterItem
-                  key={index->string_of_int}
-                  name={counter.name}
-                  value={counter.value}
-                />
-              </>
-            )
-            |> React.array}
-        //  </>;
        }}
     </Stack>;
   };
